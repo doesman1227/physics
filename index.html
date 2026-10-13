@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>物理学｜まとめノート</title>
+<meta name="description" content="世界は、どれだけ少ない法則でできているのか。力学・電磁気学・熱・相対性理論・量子力学・素粒子と宇宙の地図と流れ、対称性や観測、時間をめぐる自分の問い。量子力学と時間のノートへの入口。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f7f8f6;--surface:#fff;--ink:#20241f;--muted:#5f665d;--faint:#99a096;--line:#e0e4dd;--accent:#3f6aa8;--wash:#e9eef6}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}}
+  :root[data-theme="dark"]{--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.95 "Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:46rem;margin:auto;padding:0 16px} @media(min-width:640px){.wrap{padding:0 24px}}
+  a{color:inherit}
+  .top{padding-top:24px}
+  .back{font-size:.75rem;color:var(--muted);text-decoration:none}.back:hover{color:var(--ink)}
+  header{padding:68px 0 44px;border-bottom:1px solid var(--line)}
+  .kicker{margin:0 0 16px;font-size:.7rem;letter-spacing:.24em;color:var(--accent);font-weight:700}
+  h1{font:600 clamp(2rem,5.6vw,3rem)/1.45 "Noto Serif JP",serif;margin:0 0 6px;letter-spacing:.04em}
+  .mn-tagline{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.75;margin:.1em 0 1.1em;opacity:.85}
+  .lead{margin:0;max-width:34em;color:var(--muted)}
+  .toc{display:flex;flex-wrap:wrap;gap:6px 16px;margin:24px 0 0;padding:0;list-style:none;font-size:.82rem}
+  .toc a{color:var(--accent);text-decoration:none}
+  section{padding:50px 0;border-bottom:1px solid var(--line)}
+  .sec-n{display:block;font-size:.7rem;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:6px}
+  h2{font:600 1.5rem/1.5 "Noto Serif JP",serif;margin:0 0 14px;letter-spacing:.03em}
+  p{margin:0 0 16px}
+  .pull{margin:20px 0;padding:4px 0 4px 18px;border-left:2px solid var(--accent);font:500 1.1rem/1.8 "Noto Serif JP",serif}
+  .note-s{color:var(--faint);font-size:.84rem;margin:-6px 0 18px}
+  .map{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 0}
+  @media(min-width:640px){.map{grid-template-columns:1fr 1fr}}
+  .map > div{padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px}
+  .map small{display:block;font-size:.66rem;letter-spacing:.16em;color:var(--accent);font-weight:700;margin-bottom:2px}
+  .map b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.05rem;margin-bottom:4px}
+  .map p{margin:0;font-size:.9rem;color:var(--muted)}
+  .map .q{display:block;margin-top:6px;font-size:.84rem;color:var(--ink)}
+  .map a.go{display:inline-block;margin-top:8px;font-size:.8rem;color:var(--accent);text-decoration:none}
+  .scale{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 4px;font-size:.84rem}
+  .scale span{padding:6px 12px;background:var(--wash);border-radius:999px}
+  .scale i{font-style:normal;color:var(--faint)}
+  ol.flow{list-style:none;margin:16px 0 0;padding:0;border-left:2px solid var(--line)}
+  ol.flow li{position:relative;padding:4px 0 14px 20px;font-size:.94rem}
+  ol.flow li::before{content:"";position:absolute;left:-6px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  ol.flow b{font-family:"Noto Serif JP",serif;font-weight:600;margin-right:8px}
+  ol.flow small{color:var(--faint);margin-right:8px}
+  ol.flow span{color:var(--muted)}
+  .tl{margin-top:8px;font-size:.88rem}.tl a{color:var(--accent)}
+  .qs{display:grid;gap:12px;margin-top:16px}
+  .qs article{padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+  .qs h3{font:600 1.06rem/1.6 "Noto Serif JP",serif;margin:0 0 6px}
+  .qs p{margin:0 0 8px;font-size:.93rem;color:var(--muted)}
+  .qs .src{font-size:.78rem;color:var(--faint)}
+  .qs .src a{color:var(--accent);text-decoration:none;margin-right:10px}
+  .notes{border-top:1px solid var(--line)}
+  .notes a{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+  .notes a:hover .ttl{color:var(--accent)}
+  .notes .idx{font-family:"Noto Serif JP",serif;color:var(--faint);font-size:.9rem}
+  .notes .cat{display:block;font-size:.66rem;letter-spacing:.2em;color:var(--faint)}
+  .notes .ttl{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.12rem}
+  .notes .desc{display:block;font-size:.88rem;color:var(--muted);line-height:1.8;margin-top:4px}
+  .notes .arrow{color:var(--faint)}
+  .open{padding:24px;background:var(--wash);border-radius:4px}
+  .open h2{font-size:1.2rem}
+  .open ul{margin:10px 0 0;padding-left:1.2em}.open li{margin:0 0 8px}
+  footer{padding:34px 0 60px;color:var(--faint);font-size:.76rem}
+  footer .related{color:var(--muted);font-size:.86rem;margin-bottom:16px}
+  footer .related a{color:var(--accent)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top"><a class="back" href="../">← m-note トップ</a></div>
+  <header>
+    <p class="kicker">PHYSICS</p>
+    <h1>物理学</h1>
+    <p class="mn-tagline">世界は、どれだけ少ない法則でできているのか。</p>
+    <p class="lead">リンゴが落ちることと、月が地球を回ることは、同じ法則で説明できる。物理学は、自然のふるまいを、できるだけ少ない法則で説明しようとする学問です。その地図を広げ、自分が引っかかった問いを置いていきます。</p>
+    <ul class="toc"><li><a href="#what">物理学とは</a></li><li><a href="#map">分野の地図</a></li><li><a href="#flow">流れ</a></li><li><a href="#questions">自分の問い</a></li><li><a href="#notes">この中のノート</a></li><li><a href="#open">まだ答えが出ていない</a></li></ul>
+  </header>
+
+  <section id="what">
+    <span class="sec-n">01</span>
+    <h2>物理学とは</h2>
+    
+    
+    <p class="pull">いちばん少ない約束ごとで、いちばん多くのことを説明する。</p>
+    <p>物理学は、物と力、エネルギー、空間と時間がどうふるまうかを、数式で表せる法則として探す学問です。観察し、法則を仮説として立て、予言し、実験で確かめる。この繰り返しで、ばらばらに見えた現象が、少数の法則にまとまっていきました。</p>
+    <p>扱う世界は、大きさと速さで分けると見通しやすくなります。</p>
+    <div class="scale"><span>素粒子</span><i>→</i><span>原子</span><i>→</i><span>身のまわり</span><i>→</i><span>惑星</span><i>→</i><span>銀河</span><i>→</i><span>宇宙全体</span></div>
+    <p class="note-s" style="margin-top:6px">小さい世界では量子力学、速い世界や重い世界では相対性理論、その間ではニュートン力学がよく当てはまる。</p>
+  </section>
+  <section id="map">
+    <span class="sec-n">02</span>
+    <h2>分野の地図</h2>
+    
+    <div class="map"><div><small>MECHANICS</small><b>力学</b><p>物がどう動くか。力と運動の関係を、ニュートンの3つの法則と万有引力でまとめた、物理学の土台。</p><span class="q">問い：なぜ同じ法則が地上と天体の両方に当てはまるのか</span></div><div><small>ELECTROMAGNETISM</small><b>電磁気学</b><p>電気と磁気は一つのものの二つの顔だった。マクスウェルの方程式は、光が電磁波であることまで示した。</p><span class="q">問い：光とは、何が波打っているのか</span></div><div><small>THERMODYNAMICS</small><b>熱力学・統計力学</b><p>熱とエネルギー、そして「乱雑さ（エントロピー）は増えていく」という法則。たくさんの粒子のふるまいを確率で扱う。</p><span class="q">問い：なぜ時間は一方向にしか進まないように見えるのか</span></div><div><small>RELATIVITY</small><b>相対性理論</b><p>光の速さは誰から見ても同じ。そこから、時間と空間は一体の「時空」で、速さや重力で伸び縮みすることが導かれた。</p><span class="q">問い：時間は、宇宙に一つだけある時計ではない</span><a class="go" href="../time/">時間のノートへ →</a></div><div><small>QUANTUM MECHANICS</small><b>量子力学</b><p>ミクロの世界では、見るまで結果が決まらず、いくつもの状態が重なり合う。常識が通じない、もうひとつのルール。</p><span class="q">問い：観測とは、何をしていることなのか</span><a class="go" href="../quantum/">量子力学のノートへ →</a></div><div><small>PARTICLES & COSMOS</small><b>素粒子と宇宙</b><p>物質は何からできているのか（標準模型）、宇宙はどう始まり、どこへ向かうのか（宇宙論）。最小と最大がつながる場所。</p><span class="q">問い：重力と量子力学は、一つにまとめられるのか</span></div></div>
+  </section>
+  <section id="flow">
+    <span class="sec-n">03</span>
+    <h2>流れ</h2>
+    
+    <ol class="flow"><li><small>1687</small><b>ニュートン『プリンキピア』</b><span>天と地の運動を、同じ法則で説明する。</span></li><li><small>1864</small><b>マクスウェル方程式</b><span>電気・磁気・光が一つにまとまる。</span></li><li><small>19世紀</small><b>熱力学</b><span>エネルギーの保存と、エントロピーの増大。</span></li><li><small>1905・1915</small><b>相対性理論</b><span>時間と空間が、一つの時空になる。</span></li><li><small>1925</small><b>量子力学の誕生</b><span>ミクロの世界のルールが書き換わる。</span></li><li><small>1970年代</small><b>標準模型</b><span>物質と力を、素粒子で説明する枠組み。</span></li><li><small>2012・2015</small><b>ヒッグス粒子と重力波</b><span>予言されていたものが、実際に見つかる。</span></li></ol><p class="tl"><a href="../history-timeline/#cat=science,universe">科学と宇宙の歴史を年表で見る →</a></p>
+  </section>
+  <section id="questions">
+    <span class="sec-n">04</span>
+    <h2>自分の問い</h2>
+    
+    <div class="qs"><article><h3>対称性は、なぜ存在するのか</h3><p>自然界にはなぜこれほど対称性が現れるのか。それは世界の性質なのか、それとも世界を見る側の性質なのか。まだ問いだけを置いている。</p><div class="src"><a href="../musings/posts/p002.html">対称性は、なぜ存在するんだろう。 →</a><a href="../musings/posts/p037.html">なぜ世界は釣り合っているのか →</a></div></article><article><h3>時間は、一律ではなかった</h3><p>速く動くほど、重力が強いほど、時間はゆっくり進む。本人には普通に流れていて、別の経路をたどった人と時計を比べたときに初めて差が分かる。時間は宇宙に一つだけある絶対の時計ではなかった。</p><div class="src"><a href="../musings/posts/p125.html">一律ではなく、時空の性質 →</a></div></article><article><h3>観測とは、何をしているのか</h3><p>粒子が「消えた」のではなく、広がっていた。結果が「変わった」のではなく、隠れていた。量子の不思議は、どの経路の情報が残るかどうかで決まっているように見える。</p><div class="src"><a href="../musings/posts/p053.html">経路が残るかどうか、それだけ →</a><a href="../musings/posts/p076.html">変わったのではなく、隠れていた →</a><a href="../musings/posts/p099.html">消えたのではなく、広がっていた →</a><a href="../musings/posts/p102.html">重ね合わせはあるが、干渉はできない →</a></div></article><article><h3>物理だから単純、ではない</h3><p>意識も物理現象として説明できる可能性は高い。けれど物理現象であることと、単純であることは別。原子から分子、細胞、神経、情報、自己へと積み上がる階層のどこかで、何かが立ち上がっている。</p><div class="src"><a href="../musings/posts/p107.html">物理だから単純、ではない →</a><a href="../musings/posts/p068.html">少ない要素から、複雑が生まれる →</a></div></article></div>
+  </section>
+  <section id="notes">
+    <span class="sec-n">05</span>
+    <h2>この中のノート</h2>
+    
+    
+    <nav class="notes">
+      <a href="../quantum/"><span class="idx">01</span><span><span class="cat">QUANTUM MECHANICS</span><span class="ttl">量子力学</span><span class="desc">見るまで結果が決まらない、ミクロの世界の“もうひとつのルール”を、やさしく遊びながらたどる。</span></span><span class="arrow">→</span></a>
+      <a href="../time/"><span class="idx">02</span><span><span class="cat">TIME</span><span class="ttl">時間</span><span class="desc">光速不変という一点から、時間の遅れ、時空、重力、ブラックホールまで。時間は誰にとっても同じではなかった。</span></span><span class="arrow">→</span></a>
+    </nav>
+  </section>
+  <section id="open">
+    
+    
+    
+    <div class="open"><h2>まだ答えが出ていない</h2><ul><li>なぜ宇宙は、このような時空の構造を持っているのか</li><li>時間そのものは本当に存在するのか、それとも流れは意識がつくるのか</li><li>相対性理論と量子力学は、時間をどう扱っていて、一つにまとめられるのか</li><li>ミクロな物理現象から、脳や意識のようなマクロな現象はどう立ち上がるのか</li></ul></div>
+  </section>
+  <footer>
+    <p class="related">あわせて読む：<a href="../mathematics/">数学</a> ・ <a href="../biology/">生物学</a> ・ <a href="../philosophy/">哲学</a> ・ <a href="../history-timeline/#cat=science">歴史（科学）</a></p>
+    <p>専門家ではない個人が、学びと問いを書きとめたノートです。内容の正確性を保証するものではありません。</p>
+    <p><a class="back" href="../">← m-note トップ</a></p>
+  </footer>
+</main>
+</body>
+</html>
