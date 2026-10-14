@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>素粒子と宇宙｜物理学</title>
+<meta name="description" content="いちばん小さいものと、いちばん大きいものは、つながっていた。標準模型と4つの力、ビッグバン宇宙論と宇宙の構成、星くずでできた体、対称性の破れが質量と私たちの存在を生んだこと、残された大きな謎。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f7f8f6;--surface:#fff;--ink:#20241f;--muted:#5f665d;--faint:#99a096;--line:#e0e4dd;--accent:#3f6aa8;--wash:#e9eef6}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}}
+  :root[data-theme="dark"]{--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.95 "Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:46rem;margin:auto;padding:0 16px} @media(min-width:640px){.wrap{padding:0 24px}}
+  a{color:inherit}
+  .top{padding-top:24px}
+  .back{font-size:.75rem;color:var(--muted);text-decoration:none}.back:hover{color:var(--ink)}
+  header{padding:68px 0 44px;border-bottom:1px solid var(--line)}
+  .kicker{margin:0 0 16px;font-size:.7rem;letter-spacing:.24em;color:var(--accent);font-weight:700}
+  h1{font:600 clamp(2rem,5.6vw,3rem)/1.45 "Noto Serif JP",serif;margin:0 0 6px;letter-spacing:.04em}
+  .mn-tagline{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.75;margin:.1em 0 1.1em;opacity:.85}
+  .lead{margin:0;max-width:34em;color:var(--muted)}
+  .toc{display:flex;flex-wrap:wrap;gap:6px 16px;margin:24px 0 0;padding:0;list-style:none;font-size:.82rem}
+  .toc a{color:var(--accent);text-decoration:none}
+  section{padding:50px 0;border-bottom:1px solid var(--line)}
+  .sec-n{display:block;font-size:.7rem;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:6px}
+  h2{font:600 1.5rem/1.5 "Noto Serif JP",serif;margin:0 0 14px;letter-spacing:.03em}
+  p{margin:0 0 16px}
+  .pull{margin:20px 0;padding:4px 0 4px 18px;border-left:2px solid var(--accent);font:500 1.1rem/1.8 "Noto Serif JP",serif}
+  .note-s{color:var(--faint);font-size:.84rem;margin:-6px 0 18px}
+  .map{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 0}
+  @media(min-width:640px){.map{grid-template-columns:1fr 1fr}}
+  .map > div{padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px}
+  .map small{display:block;font-size:.66rem;letter-spacing:.16em;color:var(--accent);font-weight:700;margin-bottom:2px}
+  .map b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.05rem;margin-bottom:4px}
+  .map p{margin:0;font-size:.9rem;color:var(--muted)}
+  .map .q{display:block;margin-top:6px;font-size:.84rem;color:var(--ink)}
+  .map a.go{display:inline-block;margin-top:8px;font-size:.8rem;color:var(--accent);text-decoration:none}
+  .scale{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 4px;font-size:.84rem}
+  .scale span{padding:6px 12px;background:var(--wash);border-radius:999px}
+  .scale i{font-style:normal;color:var(--faint)}
+  ol.flow{list-style:none;margin:16px 0 0;padding:0;border-left:2px solid var(--line)}
+  ol.flow li{position:relative;padding:4px 0 14px 20px;font-size:.94rem}
+  ol.flow li::before{content:"";position:absolute;left:-6px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  ol.flow b{font-family:"Noto Serif JP",serif;font-weight:600;margin-right:8px}
+  ol.flow small{color:var(--faint);margin-right:8px}
+  ol.flow span{color:var(--muted)}
+  .tl{margin-top:8px;font-size:.88rem}.tl a{color:var(--accent)}
+  .qs{display:grid;gap:12px;margin-top:16px}
+  .qs article{padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+  .qs h3{font:600 1.06rem/1.6 "Noto Serif JP",serif;margin:0 0 6px}
+  .qs p{margin:0 0 8px;font-size:.93rem;color:var(--muted)}
+  .qs .src{font-size:.78rem;color:var(--faint)}
+  .qs .src a{color:var(--accent);text-decoration:none;margin-right:10px}
+  .notes{border-top:1px solid var(--line)}
+  .notes a{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+  .notes a:hover .ttl{color:var(--accent)}
+  .notes .idx{font-family:"Noto Serif JP",serif;color:var(--faint);font-size:.9rem}
+  .notes .cat{display:block;font-size:.66rem;letter-spacing:.2em;color:var(--faint)}
+  .notes .ttl{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.12rem}
+  .notes .desc{display:block;font-size:.88rem;color:var(--muted);line-height:1.8;margin-top:4px}
+  .notes .arrow{color:var(--faint)}
+  .open{padding:24px;background:var(--wash);border-radius:4px}
+  .open h2{font-size:1.2rem}
+  .open ul{margin:10px 0 0;padding-left:1.2em}.open li{margin:0 0 8px}
+  footer{padding:34px 0 60px;color:var(--faint);font-size:.76rem}
+  footer .related{color:var(--muted);font-size:.86rem;margin-bottom:16px}
+  footer .related a{color:var(--accent)}
+
+  .law{margin:14px 0 18px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:4px}
+  .law b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;margin-bottom:2px}
+  .law .f{display:inline-block;margin:6px 0 2px;padding:2px 10px;background:var(--wash);border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:.92rem}
+  .law p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+  .pager{display:flex;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.86rem}
+  .pager a{color:var(--muted);text-decoration:none}.pager a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top"><a class="back" href="./">← 物理学</a></div>
+  <header>
+    <p class="kicker">PHYSICS · PARTICLES & COSMOS</p>
+    <h1>素粒子と宇宙</h1>
+    <p class="mn-tagline">いちばん小さいものと、いちばん大きいものは、つながっていた。</p>
+    <p class="lead">物質を細かく分けていくと、十数種類の素粒子に行き着く。宇宙を遠くまで見ていくと、138億年前の始まりに行き着く。いちばん小さい世界といちばん大きい世界は、宇宙の始まりの瞬間に一つにつながっていました。物理学の地図の、両端にあたる場所です。</p>
+    <ul class="toc"><li><a href="#what">素粒子と宇宙とは</a></li><li><a href="#core">基本の考え方</a></li><li><a href="#life">身のまわりの素粒子と宇宙</a></li><li><a href="#flow">流れ</a></li><li><a href="#limit">限界と、次の物理へ</a></li><li><a href="#mine">自分の問いとのつながり</a></li><li><a href="#open">まだ答えが出ていない</a></li></ul>
+  </header>
+
+  <section id="what">
+    <span class="sec-n">01</span>
+    <h2>素粒子と宇宙とは</h2>
+    <p class="pull">世界は、十数種類の粒と、4つの力でできている。</p>
+    <p><strong>素粒子物理学</strong>は、物質をこれ以上分けられないところまで分け、その粒と、粒どうしにはたらく力を調べます。<strong>宇宙論</strong>は、宇宙全体がどう始まり、どう育ち、どこへ向かうのかを調べます。</p>
+    <p>一見正反対の二つは、宇宙の始まりで出会います。生まれたばかりの宇宙は、とても小さく熱い、素粒子のスープだったからです。宇宙の歴史を知るには素粒子を、素粒子の性質を確かめるには宇宙を見る必要があります。</p>
+  </section>
+  <section id="core">
+    <span class="sec-n">02</span>
+    <h2>基本の考え方</h2>
+    <div class="law"><b>物質をつくる粒 ― クォークとレプトン</b><span class="f">6 + 6 種類</span><p>陽子や中性子はクォークが3つ集まったもの。電子やニュートリノはレプトンの仲間。身のまわりの物質は、ほぼ「アップ・ダウンクォーク」と「電子」の3種類だけでできている。</p></div><div class="law"><b>4つの力</b><p>重力、電磁気力、原子核をまとめる強い力、放射性崩壊を起こす弱い力。重力以外の3つは、力を伝える粒子（光子、グルーオン、W・Z粒子）のやりとりとして説明される。</p></div><div class="law"><b>ヒッグス粒子 ― 質量の起源</b><p>宇宙を満たすヒッグス場との関わり方の違いで、素粒子に質量が生まれる。2012年に見つかり、標準模型の最後のピースが埋まった。</p></div><div class="law"><b>ビッグバン宇宙論</b><span class="f">約138億年前</span><p>宇宙は熱く小さな状態から膨張して冷えてきた。いまも全方向から届く宇宙背景放射は、宇宙が生まれて約38万年後の光。</p></div><div class="law"><b>宇宙は何でできているか</b><span class="f">約5% / 約27% / 約68%</span><p>私たちが知っている普通の物質は約5%。残りは、正体不明のダークマター（約27%）とダークエネルギー（約68%）。</p></div>
+  </section>
+  <section id="life">
+    <span class="sec-n">03</span>
+    <h2>身のまわりの素粒子と宇宙</h2>
+    <ul class="toc" style="display:block;margin:0;padding-left:1.2em;list-style:disc;font-size:.95rem;color:var(--muted)"><li style="margin-bottom:8px"><b style="color:var(--ink)">体をつくる原子は、星の中でつくられた</b> ― 水素はビッグバンで、炭素や酸素は星の中で、金のような重い元素は星の爆発や衝突で生まれた。私たちは文字どおり星くずでできている。</li><li style="margin-bottom:8px"><b style="color:var(--ink)">いまも体をすり抜けているニュートリノ</b> ― 太陽から届くニュートリノが、毎秒何百兆個も体を通り抜けている。ほとんど何とも反応しないので、気づくことはない。</li><li style="margin-bottom:8px"><b style="color:var(--ink)">病院のPET検査</b> ― 反物質である陽電子を使って、体の中を画像にしている。</li><li style="margin-bottom:8px"><b style="color:var(--ink)">昔のテレビの砂嵐</b> ― その一部は、138億年前の宇宙の名残（宇宙背景放射）だった。</li></ul>
+  </section>
+  <section id="flow">
+    <span class="sec-n">04</span>
+    <h2>流れ</h2>
+    <ol class="flow"><li><small>1897</small><b>電子の発見</b><span>原子より小さい粒が見つかる。</span></li><li><small>1911</small><b>原子核の発見</b><span>原子の中心に、小さく重い核がある。</span></li><li><small>1932</small><b>陽電子と中性子</b><span>反物質が、本当にあった。</span></li><li><small>1964・1965</small><b>クォーク模型とヒッグス機構、宇宙背景放射</b><span>物質の内側と、宇宙の始まりの光。</span></li><li><small>1970年代</small><b>標準模型の完成</b><span>素粒子と3つの力を、一つの枠組みに。</span></li><li><small>1998</small><b>ニュートリノの質量と、宇宙の加速膨張</b><span>日本のスーパーカミオカンデが、ニュートリノに質量があることを示す。同じ年、宇宙の膨張が加速していることも分かる。</span></li><li><small>2012</small><b>ヒッグス粒子の発見</b><span>質量の起源が、実験で確かめられる。</span></li></ol><p class="tl"><a href="../history-timeline/#cat=universe,science">宇宙と科学の歴史を年表で見る →</a></p>
+  </section>
+  <section id="limit">
+    <span class="sec-n">05</span>
+    <h2>限界と、次の物理へ</h2>
+    <p>標準模型は、これまでの実験をほぼすべて説明してきた、とても成功した理論です。それでも、地図にはまだ白い部分が大きく残っています。</p>
+    <ul class="toc" style="display:block;margin:0;padding-left:1.2em;list-style:disc;font-size:.95rem;color:var(--muted)"><li style="margin-bottom:8px"><b style="color:var(--ink)">重力が入っていない</b> ― 標準模型は4つの力のうち3つしか含まない。重力をどう量子の言葉で書くかは、まだ分かっていない（<a href="relativity.html" style="color:var(--accent)">相対性理論のノート</a>）。</li><li style="margin-bottom:8px"><b style="color:var(--ink)">宇宙の95%が分からない</b> ― ダークマターとダークエネルギーの正体は、どちらも不明のまま。</li><li style="margin-bottom:8px"><b style="color:var(--ink)">なぜ物質だけが残ったのか</b> ― 宇宙の始まりには物質と反物質が同じだけできたはずなのに、いまの宇宙には物質しかない。</li><li style="margin-bottom:8px"><b style="color:var(--ink)">なぜこの種類と数なのか</b> ― 素粒子の種類や質量、力の強さが、なぜこの値なのかは説明できていない。</li></ul>
+  </section>
+  <section id="mine">
+    <span class="sec-n">06</span>
+    <h2>自分の問いとのつながり</h2>
+    <p class="pull">対称性があるから世界は美しく、対称性が破れたから私たちはここにいる。</p>
+    <p>素粒子の世界でも、力の正体は対称性でした。電磁気力・強い力・弱い力は、それぞれの対称性を保つために必要な「つなぎ」として現れる。<a href="mechanics.html#mine">力学のネーターの定理</a>、<a href="electromagnetism.html#mine">電磁気学のゲージ対称性</a>と、同じ考え方が最小の世界まで貫いています。</p>
+    <p>けれど、完全な対称性のままだったら、素粒子はすべて質量を持たず、原子も星も生まれなかった。宇宙が冷える途中で対称性が自発的に「破れ」、質量が生まれた。物質と反物質のわずかな非対称がなければ、両方が打ち消し合って、何も残らなかった。<strong>私たちが存在できるのは、対称性がほんの少し破れていたから</strong>。「対称性はなぜあるのか」という問いは、「なぜ完全ではなかったのか」という問いと対になっていました。</p>
+    <p>そして、17種類ほどの素粒子と4つの力から、星も、生きものも、脳も、この思考も生まれてきた。<a href="../musings/posts/p068.html">少ない要素から、複雑が生まれる</a>という仮説の、いちばん根っこにあたる場所です。体をつくる原子が星から来たのなら、<a href="../musings/posts/p113.html">宇宙と自分を分けない</a>という見方も、比喩ではなく事実の側にあります。</p>
+    <p class="tl"><a href="../musings/posts/p002.html">対称性は、なぜ存在するんだろう。→</a>　<a href="../musings/posts/p037.html">なぜ世界は釣り合っているのか →</a></p>
+  </section>
+  <section id="open">
+    
+    <h2>まだ答えが出ていない</h2>
+    <div class="open"><ul>
+      <li>素粒子の種類や数、力の強さは、なぜこの値なのか</li>
+      <li>宇宙の始まりの「前」はあったのか。宇宙はどう終わるのか</li>
+      <li>ダークマターとダークエネルギーの正体は何なのか</li>
+      <li>対称性は、なぜ完全ではなく、ほんの少しだけ破れていたのか</li>
+    </ul></div>
+  </section>
+  <nav class="pager"><a href="../quantum/">← 量子力学</a><a href="./">物理学 →</a></nav>
+  <footer>
+    <p class="related">あわせて読む：<a href="./">物理学</a> ・ <a href="relativity.html">相対性理論</a> ・ <a href="../quantum/">量子力学</a> ・ <a href="../history-timeline/#cat=universe">歴史（宇宙）</a></p>
+    <p>専門家ではない個人が、学びと問いを書きとめたノートです。内容の正確性を保証するものではありません。</p>
+    <p><a class="back" href="./">← 物理学</a></p>
+  </footer>
+</main>
+</body>
+</html>
