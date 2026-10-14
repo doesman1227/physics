@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>相対性理論｜物理学</title>
+<meta name="description" content="光の速さだけは、誰から見ても変わらない。特殊相対性理論(同時の相対性、長さの縮み、E=mc²)と一般相対性理論(等価原理、重力は時空のゆがみ)、確かめられてきた予言とGPSなどの応用、時間のノートへの案内。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f7f8f6;--surface:#fff;--ink:#20241f;--muted:#5f665d;--faint:#99a096;--line:#e0e4dd;--accent:#3f6aa8;--wash:#e9eef6}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}}
+  :root[data-theme="dark"]{--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.95 "Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:46rem;margin:auto;padding:0 16px} @media(min-width:640px){.wrap{padding:0 24px}}
+  a{color:inherit}
+  .top{padding-top:24px}
+  .back{font-size:.75rem;color:var(--muted);text-decoration:none}.back:hover{color:var(--ink)}
+  header{padding:68px 0 44px;border-bottom:1px solid var(--line)}
+  .kicker{margin:0 0 16px;font-size:.7rem;letter-spacing:.24em;color:var(--accent);font-weight:700}
+  h1{font:600 clamp(2rem,5.6vw,3rem)/1.45 "Noto Serif JP",serif;margin:0 0 6px;letter-spacing:.04em}
+  .mn-tagline{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.75;margin:.1em 0 1.1em;opacity:.85}
+  .lead{margin:0;max-width:34em;color:var(--muted)}
+  .toc{display:flex;flex-wrap:wrap;gap:6px 16px;margin:24px 0 0;padding:0;list-style:none;font-size:.82rem}
+  .toc a{color:var(--accent);text-decoration:none}
+  section{padding:50px 0;border-bottom:1px solid var(--line)}
+  .sec-n{display:block;font-size:.7rem;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:6px}
+  h2{font:600 1.5rem/1.5 "Noto Serif JP",serif;margin:0 0 14px;letter-spacing:.03em}
+  p{margin:0 0 16px}
+  .pull{margin:20px 0;padding:4px 0 4px 18px;border-left:2px solid var(--accent);font:500 1.1rem/1.8 "Noto Serif JP",serif}
+  .note-s{color:var(--faint);font-size:.84rem;margin:-6px 0 18px}
+  .map{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 0}
+  @media(min-width:640px){.map{grid-template-columns:1fr 1fr}}
+  .map > div{padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px}
+  .map small{display:block;font-size:.66rem;letter-spacing:.16em;color:var(--accent);font-weight:700;margin-bottom:2px}
+  .map b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.05rem;margin-bottom:4px}
+  .map p{margin:0;font-size:.9rem;color:var(--muted)}
+  .map .q{display:block;margin-top:6px;font-size:.84rem;color:var(--ink)}
+  .map a.go{display:inline-block;margin-top:8px;font-size:.8rem;color:var(--accent);text-decoration:none}
+  .scale{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 4px;font-size:.84rem}
+  .scale span{padding:6px 12px;background:var(--wash);border-radius:999px}
+  .scale i{font-style:normal;color:var(--faint)}
+  ol.flow{list-style:none;margin:16px 0 0;padding:0;border-left:2px solid var(--line)}
+  ol.flow li{position:relative;padding:4px 0 14px 20px;font-size:.94rem}
+  ol.flow li::before{content:"";position:absolute;left:-6px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  ol.flow b{font-family:"Noto Serif JP",serif;font-weight:600;margin-right:8px}
+  ol.flow small{color:var(--faint);margin-right:8px}
+  ol.flow span{color:var(--muted)}
+  .tl{margin-top:8px;font-size:.88rem}.tl a{color:var(--accent)}
+  .qs{display:grid;gap:12px;margin-top:16px}
+  .qs article{padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+  .qs h3{font:600 1.06rem/1.6 "Noto Serif JP",serif;margin:0 0 6px}
+  .qs p{margin:0 0 8px;font-size:.93rem;color:var(--muted)}
+  .qs .src{font-size:.78rem;color:var(--faint)}
+  .qs .src a{color:var(--accent);text-decoration:none;margin-right:10px}
+  .notes{border-top:1px solid var(--line)}
+  .notes a{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+  .notes a:hover .ttl{color:var(--accent)}
+  .notes .idx{font-family:"Noto Serif JP",serif;color:var(--faint);font-size:.9rem}
+  .notes .cat{display:block;font-size:.66rem;letter-spacing:.2em;color:var(--faint)}
+  .notes .ttl{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.12rem}
+  .notes .desc{display:block;font-size:.88rem;color:var(--muted);line-height:1.8;margin-top:4px}
+  .notes .arrow{color:var(--faint)}
+  .open{padding:24px;background:var(--wash);border-radius:4px}
+  .open h2{font-size:1.2rem}
+  .open ul{margin:10px 0 0;padding-left:1.2em}.open li{margin:0 0 8px}
+  footer{padding:34px 0 60px;color:var(--faint);font-size:.76rem}
+  footer .related{color:var(--muted);font-size:.86rem;margin-bottom:16px}
+  footer .related a{color:var(--accent)}
+
+  .law{margin:14px 0 18px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:4px}
+  .law b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;margin-bottom:2px}
+  .law .f{display:inline-block;margin:6px 0 2px;padding:2px 10px;background:var(--wash);border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:.92rem}
+  .law p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+  .pager{display:flex;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.86rem}
+  .pager a{color:var(--muted);text-decoration:none}.pager a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top"><a class="back" href="./">← 物理学</a></div>
+  <header>
+    <p class="kicker">PHYSICS · RELATIVITY</p>
+    <h1>相対性理論</h1>
+    <p class="mn-tagline">光の速さだけは、誰から見ても変わらない。</p>
+    <p class="lead">光の速さは誰から見ても同じ。アインシュタインはこのたった一つの事実を出発点にして、時間と空間の常識を書き換えました。さらに、重力は「力」ではなく「時空のゆがみ」だという、まったく新しい見方にたどり着きます。時間の遅れの話は<a href="../time/">時間のノート</a>に詳しくまとめているので、ここでは理論の全体像を見渡します。</p>
+    <ul class="toc"><li><a href="#what">相対性理論とは</a></li><li><a href="#core">基本の考え方</a></li><li><a href="#life">身のまわりの相対性理論</a></li><li><a href="#flow">流れ</a></li><li><a href="#limit">限界と、次の物理へ</a></li><li><a href="#mine">自分の問いとのつながり</a></li><li><a href="#open">まだ答えが出ていない</a></li></ul>
+  </header>
+
+  <section id="what">
+    <span class="sec-n">01</span>
+    <h2>相対性理論とは</h2>
+    <p class="pull">時間と空間は別々のものではなく、一つの「時空」だった。</p>
+    <p>相対性理論は二つの理論からなります。1905年の<strong>特殊相対性理論</strong>は、等速で動く世界での時間と空間を扱い、1915年の<strong>一般相対性理論</strong>は、それを重力のある世界へ広げました。</p>
+    <p>出発点は二つだけ。「物理法則は、どの立場の観測者にとっても同じ」「光の速さは、誰から見ても同じ」。この二つを両立させようとすると、時間や長さのほうが観測者によって変わるしかなくなります。</p>
+  </section>
+  <section id="core">
+    <span class="sec-n">02</span>
+    <h2>基本の考え方</h2>
+    <div class="law"><b>同時の相対性</b><p>ある人にとって同時に起きた二つの出来事が、別の速さで動く人には同時に見えない。「宇宙全体に共通のいま」はなかった。</p></div><div class="law"><b>時間の遅れと長さの縮み</b><p>速く動くものほど、時間はゆっくり進み、進む向きの長さは縮んで見える。詳しくは時間のノートへ。</p></div><div class="law"><b>質量とエネルギーは同じもの</b><span class="f">E = m c²</span><p>わずかな質量の中に、光の速さの2乗という桁外れのエネルギーが詰まっている。太陽が輝くのも、原子力発電も、この関係による。</p></div><div class="law"><b>等価原理</b><p>落ちているエレベーターの中では、重さを感じない。重力と加速は、その場では区別できない。</p></div><div class="law"><b>重力は、時空のゆがみ</b><p>重いものは周りの時空をゆがめ、物も光もそのゆがみに沿って進む。「物質は時空にどう曲がるかを教え、時空は物質にどう動くかを教える」（ホイーラー）。</p></div>
+  </section>
+  <section id="life">
+    <span class="sec-n">03</span>
+    <h2>身のまわりの相対性理論</h2>
+    <ul class="toc" style="display:block;margin:0;padding-left:1.2em;list-style:disc;font-size:.95rem;color:var(--muted)"><li style="margin-bottom:8px"><b style="color:var(--ink)">スマートフォンの地図（GPS）</b> ― 衛星の時計は、速く動くことで遅れ、重力が弱いことで進む。この両方を補正しないと、位置が1日に約10kmずれていく。</li><li style="margin-bottom:8px"><b style="color:var(--ink)">太陽が輝き続ける理由</b> ― 水素がヘリウムに変わるとき、わずかに減った質量がE = mc²でエネルギーになっている。</li><li style="margin-bottom:8px"><b style="color:var(--ink)">宇宙から降ってくるミュー粒子</b> ― 寿命がとても短いのに地上まで届くのは、光に近い速さで飛んでいて、時間がゆっくり進むから。</li></ul>
+  </section>
+  <section id="flow">
+    <span class="sec-n">04</span>
+    <h2>流れ</h2>
+    <ol class="flow"><li><small>1887</small><b>マイケルソン・モーリーの実験</b><span>光を伝えるはずのエーテルが、見つからない。</span></li><li><small>1905</small><b>特殊相対性理論とE = mc²</b><span>光速不変から、時間と空間が書き換わる。</span></li><li><small>1908</small><b>ミンコフスキーの時空</b><span>時間と空間を、一つの4次元の時空として描く。</span></li><li><small>1915</small><b>一般相対性理論</b><span>重力を、時空のゆがみとして説明する。</span></li><li><small>1919</small><b>日食での光の曲がりの観測</b><span>太陽のそばを通る星の光が、予言どおりに曲がっていた。</span></li><li><small>1929</small><b>宇宙の膨張</b><span>遠くの銀河ほど速く遠ざかっている。時空そのものが広がっていた。</span></li><li><small>2015・2019</small><b>重力波とブラックホールの撮影</b><span>時空のさざ波を捉え、ブラックホールの影を写す。</span></li></ol><p class="tl"><a href="../history-timeline/#cat=science,universe">科学と宇宙の歴史を年表で見る →</a></p>
+  </section>
+  <section id="limit">
+    <span class="sec-n">05</span>
+    <h2>限界と、次の物理へ</h2>
+    <p>一般相対性理論は、100年以上にわたってあらゆる検証をくぐり抜けてきました。それでも、説明できない場所が残っています。</p>
+    <ul class="toc" style="display:block;margin:0;padding-left:1.2em;list-style:disc;font-size:.95rem;color:var(--muted)"><li style="margin-bottom:8px"><b style="color:var(--ink)">ブラックホールの中心と宇宙の始まり</b> ― 理論が無限大を出して、それ以上先を語れなくなる（特異点）。</li><li style="margin-bottom:8px"><b style="color:var(--ink)">量子力学との統一</b> ― 重力だけは、まだ量子力学とうまく一つにまとまっていない。両方を一つの理論にする「量子重力」は、物理学の大きな未解決問題。<a href="../quantum/" style="color:var(--accent)">量子力学のノートへ</a></li><li style="margin-bottom:8px"><b style="color:var(--ink)">宇宙を満たす見えないもの</b> ― 銀河の動きや宇宙の膨張の加速を説明するには、正体不明のダークマターとダークエネルギーが必要になる。</li></ul>
+  </section>
+  <section id="mine">
+    <span class="sec-n">06</span>
+    <h2>自分の問いとのつながり</h2>
+    <p class="pull">時間は、宇宙に一つだけある時計ではなかった。</p>
+    <p>時間は誰にとっても同じように流れるものだと思っていた。けれど、速く動くほど、重力が強いほど、時間はゆっくり進む。本人にとってはいつも通りで、別の道をたどった人と時計を比べたときにだけ差が分かる。</p>
+    <p>そして相対性理論も、対称性から出発しています。「どの立場の観測者にとっても法則は同じ」という対称性を貫いた結果、時間と空間のほうが変わるしかなかった。<a href="mechanics.html#mine">力学のネーターの定理</a>と同じく、ここでも対称性が世界の形を決めています。</p>
+    <p class="tl"><a href="../time/">時間のノートへ →</a>　<a href="../musings/posts/p125.html">一律ではなく、時空の性質 →</a></p>
+  </section>
+  <section id="open">
+    
+    <h2>まだ答えが出ていない</h2>
+    <div class="open"><ul>
+      <li>そもそも、なぜ宇宙はこのような時空の構造を持っているのか</li>
+      <li>ブラックホールの内部では、時間と空間はどうなっているのか</li>
+      <li>重力と量子力学は、一つの理論にまとめられるのか</li>
+    </ul></div>
+  </section>
+  <nav class="pager"><a href="thermodynamics.html">← 熱力学</a><a href="../time/">時間 →</a></nav>
+  <footer>
+    <p class="related">あわせて読む：<a href="./">物理学</a> ・ <a href="../time/">時間</a> ・ <a href="electromagnetism.html">電磁気学</a> ・ <a href="../quantum/">量子力学</a></p>
+    <p>専門家ではない個人が、学びと問いを書きとめたノートです。内容の正確性を保証するものではありません。</p>
+    <p><a class="back" href="./">← 物理学</a></p>
+  </footer>
+</main>
+</body>
+</html>
