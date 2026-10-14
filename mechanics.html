@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>力学｜物理学</title>
+<meta name="description" content="リンゴも月も、同じ法則で動いている。物の動きを力で説明する力学の基本(ニュートンの3法則、万有引力、運動量・エネルギー・角運動量の保存)と流れ、対称性と保存則をつなぐネーターの定理、相対性理論と量子力学への橋。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f7f8f6;--surface:#fff;--ink:#20241f;--muted:#5f665d;--faint:#99a096;--line:#e0e4dd;--accent:#3f6aa8;--wash:#e9eef6}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}}
+  :root[data-theme="dark"]{--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.95 "Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:46rem;margin:auto;padding:0 16px} @media(min-width:640px){.wrap{padding:0 24px}}
+  a{color:inherit}
+  .top{padding-top:24px}
+  .back{font-size:.75rem;color:var(--muted);text-decoration:none}.back:hover{color:var(--ink)}
+  header{padding:68px 0 44px;border-bottom:1px solid var(--line)}
+  .kicker{margin:0 0 16px;font-size:.7rem;letter-spacing:.24em;color:var(--accent);font-weight:700}
+  h1{font:600 clamp(2rem,5.6vw,3rem)/1.45 "Noto Serif JP",serif;margin:0 0 6px;letter-spacing:.04em}
+  .mn-tagline{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.75;margin:.1em 0 1.1em;opacity:.85}
+  .lead{margin:0;max-width:34em;color:var(--muted)}
+  .toc{display:flex;flex-wrap:wrap;gap:6px 16px;margin:24px 0 0;padding:0;list-style:none;font-size:.82rem}
+  .toc a{color:var(--accent);text-decoration:none}
+  section{padding:50px 0;border-bottom:1px solid var(--line)}
+  .sec-n{display:block;font-size:.7rem;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:6px}
+  h2{font:600 1.5rem/1.5 "Noto Serif JP",serif;margin:0 0 14px;letter-spacing:.03em}
+  p{margin:0 0 16px}
+  .pull{margin:20px 0;padding:4px 0 4px 18px;border-left:2px solid var(--accent);font:500 1.1rem/1.8 "Noto Serif JP",serif}
+  .note-s{color:var(--faint);font-size:.84rem;margin:-6px 0 18px}
+  .map{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 0}
+  @media(min-width:640px){.map{grid-template-columns:1fr 1fr}}
+  .map > div{padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px}
+  .map small{display:block;font-size:.66rem;letter-spacing:.16em;color:var(--accent);font-weight:700;margin-bottom:2px}
+  .map b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.05rem;margin-bottom:4px}
+  .map p{margin:0;font-size:.9rem;color:var(--muted)}
+  .map .q{display:block;margin-top:6px;font-size:.84rem;color:var(--ink)}
+  .map a.go{display:inline-block;margin-top:8px;font-size:.8rem;color:var(--accent);text-decoration:none}
+  .scale{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 4px;font-size:.84rem}
+  .scale span{padding:6px 12px;background:var(--wash);border-radius:999px}
+  .scale i{font-style:normal;color:var(--faint)}
+  ol.flow{list-style:none;margin:16px 0 0;padding:0;border-left:2px solid var(--line)}
+  ol.flow li{position:relative;padding:4px 0 14px 20px;font-size:.94rem}
+  ol.flow li::before{content:"";position:absolute;left:-6px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  ol.flow b{font-family:"Noto Serif JP",serif;font-weight:600;margin-right:8px}
+  ol.flow small{color:var(--faint);margin-right:8px}
+  ol.flow span{color:var(--muted)}
+  .tl{margin-top:8px;font-size:.88rem}.tl a{color:var(--accent)}
+  .qs{display:grid;gap:12px;margin-top:16px}
+  .qs article{padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+  .qs h3{font:600 1.06rem/1.6 "Noto Serif JP",serif;margin:0 0 6px}
+  .qs p{margin:0 0 8px;font-size:.93rem;color:var(--muted)}
+  .qs .src{font-size:.78rem;color:var(--faint)}
+  .qs .src a{color:var(--accent);text-decoration:none;margin-right:10px}
+  .notes{border-top:1px solid var(--line)}
+  .notes a{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+  .notes a:hover .ttl{color:var(--accent)}
+  .notes .idx{font-family:"Noto Serif JP",serif;color:var(--faint);font-size:.9rem}
+  .notes .cat{display:block;font-size:.66rem;letter-spacing:.2em;color:var(--faint)}
+  .notes .ttl{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.12rem}
+  .notes .desc{display:block;font-size:.88rem;color:var(--muted);line-height:1.8;margin-top:4px}
+  .notes .arrow{color:var(--faint)}
+  .open{padding:24px;background:var(--wash);border-radius:4px}
+  .open h2{font-size:1.2rem}
+  .open ul{margin:10px 0 0;padding-left:1.2em}.open li{margin:0 0 8px}
+  footer{padding:34px 0 60px;color:var(--faint);font-size:.76rem}
+  footer .related{color:var(--muted);font-size:.86rem;margin-bottom:16px}
+  footer .related a{color:var(--accent)}
+
+  .law{margin:14px 0 18px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:4px}
+  .law b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;margin-bottom:2px}
+  .law .f{display:inline-block;margin:6px 0 2px;padding:2px 10px;background:var(--wash);border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:.92rem}
+  .law p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+  .pager{display:flex;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.86rem}
+  .pager a{color:var(--muted);text-decoration:none}.pager a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top"><a class="back" href="./">← 物理学</a></div>
+  <header>
+    <p class="kicker">PHYSICS · MECHANICS</p>
+    <h1>力学</h1>
+    <p class="mn-tagline">リンゴも月も、同じ法則で動いている。</p>
+    <p class="lead">投げたボールの軌道も、惑星の公転も、同じいくつかの法則で計算できる。力学は、物がどう動くかを、力との関係で説明する物理学の土台です。そしてその奥には、「対称性があるところに、保存されるものがある」という美しい関係が隠れていました。</p>
+    <ul class="toc"><li><a href="#what">力学とは</a></li><li><a href="#core">基本の考え方</a></li><li><a href="#life">身のまわりの力学</a></li><li><a href="#flow">流れ</a></li><li><a href="#limit">限界と、次の物理へ</a></li><li><a href="#mine">自分の問いとのつながり</a></li><li><a href="#open">まだ答えが出ていない</a></li></ul>
+  </header>
+
+  <section id="what">
+    <span class="sec-n">01</span>
+    <h2>力学とは</h2>
+    <p class="pull">物の動きは、力によって変わる。力がなければ、変わらない。</p>
+    <p>力学は、物の位置が時間とともにどう変わるかを扱う学問です。「どこにあるか（位置）」「どれだけ速く動いているか（速度）」「速度がどう変わっているか（加速度）」の三つで動きを記述し、その変化の原因を「力」として捉えます。</p>
+    <p>大事なのは、法則が一度分かれば、いまの状態から未来の動きを計算できること。日食の日時や、探査機が何年後にどこに着くかまで、前もって分かるのはこのためです。</p>
+  </section>
+  <section id="core">
+    <span class="sec-n">02</span>
+    <h2>基本の考え方</h2>
+    <div class="law"><b>第1法則 ― 慣性の法則</b><p>力がはたらかなければ、止まっている物は止まったまま、動いている物は同じ速さでまっすぐ動き続ける。動き続けるのに、力はいらない。</p></div><div class="law"><b>第2法則 ― 運動方程式</b><span class="f">F = m a</span><p>力（F）は、質量（m）と加速度（a）の積に等しい。同じ力なら、重い物ほど速さが変わりにくい。</p></div><div class="law"><b>第3法則 ― 作用・反作用</b><p>押せば、同じ大きさで押し返される。ロケットが進むのは、噴き出したガスに押し返されるから。</p></div><div class="law"><b>万有引力</b><span class="f">F = G m₁m₂ / r²</span><p>すべての物は互いに引き合い、その力は距離の2乗に反比例する。地上で物が落ちるのも、月が地球を回り続けるのも、同じ力。</p></div><div class="law"><b>保存則 ― 変わらないもの</b><p>外から邪魔されなければ、運動量（質量×速度）、エネルギー、角運動量（回転の勢い）の合計は変わらない。複雑な動きも、変わらないものに注目すると一気に解ける。</p></div>
+  </section>
+  <section id="life">
+    <span class="sec-n">03</span>
+    <h2>身のまわりの力学</h2>
+    <ul class="toc" style="display:block;margin:0;padding-left:1.2em;list-style:disc;font-size:.95rem;color:var(--muted)">
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">電車が急ブレーキをかけると、体が前に倒れる</b> ― 体は動き続けようとする（慣性）。</li>
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">フィギュアスケートで腕を縮めると、回転が速くなる</b> ― 角運動量が保存されるから。</li>
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">登山で、ジグザグの道のほうが楽に感じる</b> ― 上がる高さ（位置エネルギー）は同じでも、一歩あたりの力が小さくなる。</li>
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">人工衛星は、落ち続けながら地球を回っている</b> ― 横に速く進むので、落ちても地面が遠ざかっていく。</li>
+    </ul>
+  </section>
+  <section id="flow">
+    <span class="sec-n">04</span>
+    <h2>流れ</h2>
+    <ol class="flow"><li><small>1600年代初め</small><b>ガリレオの落体と慣性</b><span>重さに関係なく、物は同じように落ちる。</span></li><li><small>1609〜1619</small><b>ケプラーの法則</b><span>惑星は太陽のまわりを楕円で回っている。</span></li><li><small>1687</small><b>ニュートン『プリンキピア』</b><span>運動の3法則と万有引力で、天と地を一つにする。</span></li><li><small>1788</small><b>ラグランジュの解析力学</b><span>力ではなく、エネルギーから運動を導く書き方。</span></li><li><small>1833</small><b>ハミルトンの力学</b><span>のちに量子力学へ受け継がれる形式。</span></li><li><small>1918</small><b>ネーターの定理</b><span>対称性があると、保存されるものがある。</span></li></ol><p class="tl"><a href="../history-timeline/#cat=science,universe">科学と宇宙の歴史を年表で見る →</a></p>
+  </section>
+  <section id="limit">
+    <span class="sec-n">05</span>
+    <h2>限界と、次の物理へ</h2>
+    <p>ニュートン力学は、身のまわりの世界ではいまも十分に正確です。けれど、二つの方向で限界がありました。</p>
+    <ul class="toc" style="display:block;margin:0;padding-left:1.2em;list-style:disc;font-size:.95rem;color:var(--muted)">
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">光に近い速さ、強い重力の世界</b> ― 時間と空間が伸び縮みする。相対性理論へ（<a href="../time/" style="color:var(--accent)">時間のノート</a>）。</li>
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">原子より小さい世界</b> ― 位置と速さを同時に決められない。量子力学へ（<a href="../quantum/" style="color:var(--accent)">量子力学のノート</a>）。</li>
+    </ul>
+    <p style="margin-top:14px">それでも、ラグランジュやハミルトンが作った力学の「書き方」は、相対性理論にも量子力学にも、形を変えて受け継がれています。</p>
+  </section>
+  <section id="mine">
+    <span class="sec-n">06</span>
+    <h2>自分の問いとのつながり</h2>
+    <p class="pull">対称性があるところに、保存されるものがある。</p>
+    <p>つぶやきに置いたままの問い「対称性は、なぜ存在するのか」。力学には、その問いとぴったり重なる定理があります。1918年にエミー・ネーターが示した<strong>ネーターの定理</strong>です。</p>
+    <div class="map" style="margin-top:12px">
+      <div><small>TIME</small><b>時間をずらしても法則が同じ</b><p>→ <strong>エネルギー</strong>が保存される。</p></div>
+      <div><small>SPACE</small><b>場所をずらしても法則が同じ</b><p>→ <strong>運動量</strong>が保存される。</p></div>
+      <div><small>ROTATION</small><b>向きを変えても法則が同じ</b><p>→ <strong>角運動量</strong>が保存される。</p></div>
+      <div><small>QUESTION</small><b>では、対称性はなぜあるのか</b><p>保存則の理由は対称性だった。けれど、その対称性そのものがなぜあるのかは、まだ問いのまま。</p></div>
+    </div>
+    <p class="tl" style="margin-top:14px"><a href="../musings/posts/p002.html">対称性は、なぜ存在するんだろう。→</a>　<a href="../musings/posts/p037.html">なぜ世界は釣り合っているのか →</a></p>
+  </section>
+  <section id="open">
+    
+    <h2>まだ答えが出ていない</h2>
+    <div class="open"><ul>
+      <li>宇宙の法則は、なぜ時間や場所によって変わらないのか</li>
+      <li>力学は未来を計算できるのに、なぜ私たちは未来が決まっていると感じないのか</li>
+      <li>重力はほかの力と比べて、なぜこれほど弱いのか</li>
+    </ul></div>
+  </section>
+  <nav class="pager"><a href="./">← 物理学</a><a href="electromagnetism.html">電磁気学 →</a></nav>
+  <footer>
+    <p class="related">あわせて読む：<a href="./">物理学</a> ・ <a href="../time/">時間</a> ・ <a href="../quantum/">量子力学</a> ・ <a href="../mathematics/">数学</a></p>
+    <p>専門家ではない個人が、学びと問いを書きとめたノートです。内容の正確性を保証するものではありません。</p>
+    <p><a class="back" href="./">← 物理学</a></p>
+  </footer>
+</main>
+</body>
+</html>

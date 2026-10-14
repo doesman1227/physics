@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>電磁気学｜物理学</title>
+<meta name="description" content="電気と磁気は、一つのものの二つの顔だった。電荷・電場・磁場、電磁誘導、マクスウェル方程式と電磁波、身のまわりの電磁気、相対性理論と量子力学への橋、光とは何が波打っているのかという問い。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f7f8f6;--surface:#fff;--ink:#20241f;--muted:#5f665d;--faint:#99a096;--line:#e0e4dd;--accent:#3f6aa8;--wash:#e9eef6}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}}
+  :root[data-theme="dark"]{--bg:#121412;--surface:#1a1d1a;--ink:#e7ebe5;--muted:#a5aca2;--faint:#687065;--line:#2a2f29;--accent:#93b4e6;--wash:#1b2230}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.95 "Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:46rem;margin:auto;padding:0 16px} @media(min-width:640px){.wrap{padding:0 24px}}
+  a{color:inherit}
+  .top{padding-top:24px}
+  .back{font-size:.75rem;color:var(--muted);text-decoration:none}.back:hover{color:var(--ink)}
+  header{padding:68px 0 44px;border-bottom:1px solid var(--line)}
+  .kicker{margin:0 0 16px;font-size:.7rem;letter-spacing:.24em;color:var(--accent);font-weight:700}
+  h1{font:600 clamp(2rem,5.6vw,3rem)/1.45 "Noto Serif JP",serif;margin:0 0 6px;letter-spacing:.04em}
+  .mn-tagline{font-family:"Noto Serif JP",serif;font-weight:500;font-size:clamp(1.05rem,2.6vw,1.4rem);line-height:1.75;margin:.1em 0 1.1em;opacity:.85}
+  .lead{margin:0;max-width:34em;color:var(--muted)}
+  .toc{display:flex;flex-wrap:wrap;gap:6px 16px;margin:24px 0 0;padding:0;list-style:none;font-size:.82rem}
+  .toc a{color:var(--accent);text-decoration:none}
+  section{padding:50px 0;border-bottom:1px solid var(--line)}
+  .sec-n{display:block;font-size:.7rem;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:6px}
+  h2{font:600 1.5rem/1.5 "Noto Serif JP",serif;margin:0 0 14px;letter-spacing:.03em}
+  p{margin:0 0 16px}
+  .pull{margin:20px 0;padding:4px 0 4px 18px;border-left:2px solid var(--accent);font:500 1.1rem/1.8 "Noto Serif JP",serif}
+  .note-s{color:var(--faint);font-size:.84rem;margin:-6px 0 18px}
+  .map{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 0}
+  @media(min-width:640px){.map{grid-template-columns:1fr 1fr}}
+  .map > div{padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px}
+  .map small{display:block;font-size:.66rem;letter-spacing:.16em;color:var(--accent);font-weight:700;margin-bottom:2px}
+  .map b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.05rem;margin-bottom:4px}
+  .map p{margin:0;font-size:.9rem;color:var(--muted)}
+  .map .q{display:block;margin-top:6px;font-size:.84rem;color:var(--ink)}
+  .map a.go{display:inline-block;margin-top:8px;font-size:.8rem;color:var(--accent);text-decoration:none}
+  .scale{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 4px;font-size:.84rem}
+  .scale span{padding:6px 12px;background:var(--wash);border-radius:999px}
+  .scale i{font-style:normal;color:var(--faint)}
+  ol.flow{list-style:none;margin:16px 0 0;padding:0;border-left:2px solid var(--line)}
+  ol.flow li{position:relative;padding:4px 0 14px 20px;font-size:.94rem}
+  ol.flow li::before{content:"";position:absolute;left:-6px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  ol.flow b{font-family:"Noto Serif JP",serif;font-weight:600;margin-right:8px}
+  ol.flow small{color:var(--faint);margin-right:8px}
+  ol.flow span{color:var(--muted)}
+  .tl{margin-top:8px;font-size:.88rem}.tl a{color:var(--accent)}
+  .qs{display:grid;gap:12px;margin-top:16px}
+  .qs article{padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+  .qs h3{font:600 1.06rem/1.6 "Noto Serif JP",serif;margin:0 0 6px}
+  .qs p{margin:0 0 8px;font-size:.93rem;color:var(--muted)}
+  .qs .src{font-size:.78rem;color:var(--faint)}
+  .qs .src a{color:var(--accent);text-decoration:none;margin-right:10px}
+  .notes{border-top:1px solid var(--line)}
+  .notes a{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);text-decoration:none}
+  .notes a:hover .ttl{color:var(--accent)}
+  .notes .idx{font-family:"Noto Serif JP",serif;color:var(--faint);font-size:.9rem}
+  .notes .cat{display:block;font-size:.66rem;letter-spacing:.2em;color:var(--faint)}
+  .notes .ttl{display:block;font-family:"Noto Serif JP",serif;font-weight:600;font-size:1.12rem}
+  .notes .desc{display:block;font-size:.88rem;color:var(--muted);line-height:1.8;margin-top:4px}
+  .notes .arrow{color:var(--faint)}
+  .open{padding:24px;background:var(--wash);border-radius:4px}
+  .open h2{font-size:1.2rem}
+  .open ul{margin:10px 0 0;padding-left:1.2em}.open li{margin:0 0 8px}
+  footer{padding:34px 0 60px;color:var(--faint);font-size:.76rem}
+  footer .related{color:var(--muted);font-size:.86rem;margin-bottom:16px}
+  footer .related a{color:var(--accent)}
+
+  .law{margin:14px 0 18px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:4px}
+  .law b{display:block;font-family:"Noto Serif JP",serif;font-weight:600;margin-bottom:2px}
+  .law .f{display:inline-block;margin:6px 0 2px;padding:2px 10px;background:var(--wash);border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:.92rem}
+  .law p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+  .pager{display:flex;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.86rem}
+  .pager a{color:var(--muted);text-decoration:none}.pager a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top"><a class="back" href="./">← 物理学</a></div>
+  <header>
+    <p class="kicker">PHYSICS · ELECTROMAGNETISM</p>
+    <h1>電磁気学</h1>
+    <p class="mn-tagline">電気と磁気は、一つのものの二つの顔だった。</p>
+    <p class="lead">静電気の火花も、磁石が鉄を引きつけることも、スマートフォンの電波も、目に見える光も、すべて同じ一つの理論で説明できる。電磁気学は、電気と磁気をまとめ上げ、ついには光の正体まで明らかにした物理学です。</p>
+    <ul class="toc"><li><a href="#what">電磁気学とは</a></li><li><a href="#core">基本の考え方</a></li><li><a href="#life">身のまわりの電磁気学</a></li><li><a href="#flow">流れ</a></li><li><a href="#limit">限界と、次の物理へ</a></li><li><a href="#mine">自分の問いとのつながり</a></li><li><a href="#open">まだ答えが出ていない</a></li></ul>
+  </header>
+
+  <section id="what">
+    <span class="sec-n">01</span>
+    <h2>電磁気学とは</h2>
+    <p class="pull">離れていても、力は伝わる。その間を満たしているのが「場」。</p>
+    <p>電磁気学は、電気を帯びたもの（電荷）と、電流、磁石のふるまいを扱う学問です。鍵になる考え方は<strong>場</strong>。電荷のまわりの空間には「電場」が、電流や磁石のまわりには「磁場」が広がっていて、ほかの電荷はその場から力を受ける。触れていないのに力が伝わる理由を、空間そのものの性質として捉えます。</p>
+  </section>
+  <section id="core">
+    <span class="sec-n">02</span>
+    <h2>基本の考え方</h2>
+    <div class="law"><b>電荷とクーロンの法則</b><span class="f">F = k q₁q₂ / r²</span><p>電気にはプラスとマイナスがあり、同じ符号は反発し、違う符号は引き合う。その力は距離の2乗に反比例する。万有引力とよく似た形。</p></div><div class="law"><b>電流は磁場をつくる</b><p>電線に電流を流すと、そのまわりに磁場ができる。電磁石やモーターは、この性質を使っている。</p></div><div class="law"><b>磁場が変わると電流が生まれる ― 電磁誘導</b><p>磁石を動かすと、近くのコイルに電流が流れる。発電所で電気をつくる原理。電気と磁気は、互いを生み出し合う。</p></div><div class="law"><b>マクスウェル方程式</b><span class="f">4つの方程式</span><p>電荷は電場をつくる / 磁場には始まりも終わりもない / 変化する磁場は電場をつくる / 電流と変化する電場は磁場をつくる。電気と磁気のすべてが、この4つにまとまる。</p></div><div class="law"><b>電磁波 ― 光の正体</b><span class="f">c ≒ 30万 km/秒</span><p>電場と磁場が互いを生み出しながら、波として空間を進む。その速さを計算すると、光の速さと一致した。光は電磁波だった。</p></div>
+  </section>
+  <section id="life">
+    <span class="sec-n">03</span>
+    <h2>身のまわりの電磁気学</h2>
+    <ul class="toc" style="display:block;margin:0;padding-left:1.2em;list-style:disc;font-size:.95rem;color:var(--muted)">
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">コンセントの電気</b> ― 発電所でタービンが磁石を回し、電磁誘導でつくられている。</li>
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">モーター</b> ― 電流が磁場から受ける力で回る。電車も扇風機も同じ原理。</li>
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">スマートフォンとWi-Fi</b> ― 電波（目に見えない電磁波）で情報をやりとりしている。</li>
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">ワイヤレス充電</b> ― 置くだけで充電できるのも、電磁誘導。</li>
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">虹の七色と、レントゲン</b> ― 光もX線も、波長が違うだけの電磁波。</li>
+    </ul>
+  </section>
+  <section id="flow">
+    <span class="sec-n">04</span>
+    <h2>流れ</h2>
+    <ol class="flow"><li><small>1785</small><b>クーロンの法則</b><span>電気の力を、数式で測る。</span></li><li><small>1800</small><b>ボルタ電池</b><span>電気を流し続けられるようになる。</span></li><li><small>1820</small><b>エルステッドの発見</b><span>電流のそばで、方位磁針が動く。</span></li><li><small>1831</small><b>ファラデーの電磁誘導</b><span>磁石を動かすと、電気が生まれる。</span></li><li><small>1864</small><b>マクスウェル方程式</b><span>電気・磁気・光が一つにまとまる。</span></li><li><small>1888</small><b>ヘルツの電磁波の実証</b><span>予言された電磁波が、実験で確かめられる。無線の始まり。</span></li></ol><p class="tl"><a href="../history-timeline/#cat=science,tech">科学と技術の歴史を年表で見る →</a></p>
+  </section>
+  <section id="limit">
+    <span class="sec-n">05</span>
+    <h2>限界と、次の物理へ</h2>
+    <p>電磁気学は完成した理論に見えましたが、二つの大きな謎を残しました。そしてその謎が、20世紀の物理学を生み出します。</p>
+    <ul class="toc" style="display:block;margin:0;padding-left:1.2em;list-style:disc;font-size:.95rem;color:var(--muted)">
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">光の速さは、誰から見た速さなのか</b> ― マクスウェル方程式から出てくる光の速さには、「誰から見て」が書かれていなかった。アインシュタインは「誰から見ても同じ」と考え、相対性理論が生まれた（<a href="../time/" style="color:var(--accent)">時間のノート</a>）。</li>
+      <li style="margin-bottom:8px"><b style="color:var(--ink)">光は、本当にただの波なのか</b> ― 光を金属に当てると電子が飛び出す（光電効果）。これは光が粒のように振る舞うと考えないと説明できなかった。量子力学の入口（<a href="../quantum/" style="color:var(--accent)">量子力学のノート</a>）。</li>
+    </ul>
+  </section>
+  <section id="mine">
+    <span class="sec-n">06</span>
+    <h2>自分の問いとのつながり</h2>
+    <p class="pull">光とは、何が波打っているのか。</p>
+    <p>波には、それを伝えるもの（水の波なら水、音なら空気）があるはずだと考えられ、光を伝える見えない媒質「エーテル」が探されました。けれど、いくら精密に測っても見つからなかった。答えは、<strong>何もない空間そのものを、電場と磁場が伝わっていく</strong>というものでした。</p>
+    <p>そして電磁気学も、対称性で書かれています。場の見方を場所ごとに自由に変えても法則が変わらない（ゲージ対称性）。その対称性から、電荷が保存されることが導かれます。「対称性は、なぜ存在するのか」という問いは、ここでも同じ形で現れています。</p>
+    <p class="tl"><a href="mechanics.html#mine">力学のネーターの定理へ →</a>　<a href="../musings/posts/p002.html">対称性は、なぜ存在するんだろう。→</a></p>
+  </section>
+  <section id="open">
+    
+    <h2>まだ答えが出ていない</h2>
+    <div class="open"><ul>
+      <li>何もない空間を伝わる「場」とは、いったい何なのか</li>
+      <li>光は、なぜ波でもあり粒でもあるのか</li>
+      <li>電気の力は、なぜ重力よりはるかに強いのか</li>
+    </ul></div>
+  </section>
+  <nav class="pager"><a href="mechanics.html">← 力学</a><a href="../time/">時間 →</a></nav>
+  <footer>
+    <p class="related">あわせて読む：<a href="./">物理学</a> ・ <a href="mechanics.html">力学</a> ・ <a href="../time/">時間</a> ・ <a href="../quantum/">量子力学</a></p>
+    <p>専門家ではない個人が、学びと問いを書きとめたノートです。内容の正確性を保証するものではありません。</p>
+    <p><a class="back" href="./">← 物理学</a></p>
+  </footer>
+</main>
+</body>
+</html>
